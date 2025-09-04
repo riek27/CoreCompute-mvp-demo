@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroNet AI | Premium Decentralized Compute Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-dark: #0a0e17;
+            --primary: #131b2e;
+            --primary-light: #1c2a48;
+            --accent: #c89763;
+            --accent-light: #dbb585;
+            --accent-glow: rgba(200, 151, 99, 0.15);
+            --secondary: #1eb4b9;
+            --text: #e6e9f0;
+            --text-muted: #9ba5c9;
+            --card-bg: rgba(28, 42, 72, 0.6);
+            --card-border: rgba(200, 151, 99, 0.2);
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --error: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--accent), var(--secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--primary-dark);
+            color: var(--text);
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(28, 42, 72, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(30, 180, 185, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 50% 80%, rgba(200, 151, 99, 0.1) 0%, transparent 25%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 25px 0;
+            background: rgba(10, 14, 23, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--text);
+        }
+
+        .logo-icon {
+            color: var(--accent);
+            font-size: 2.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: rgba(200, 151, 99, 0.1);
+        }
+
+        .hero {
+            padding: 80px 0 50px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--text) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accent-light);
+        }
+
+        .card h2 i {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 5px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--primary-light);
+            color: var(--text);
+            font-family: 'Raleway', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .job {
+            background: rgba(10, 14, 23, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s;
+        }
+
+        .job:hover {
+            transform: translateX(5px);
+        }
+
+        .job-info {
+            flex: 1;
+        }
+
+        .job-info h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 5px;
+            color: var(--accent-light);
+        }
+
+        .job-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: rgba(46, 204, 113, 0.2);
+            color: var(--success);
+        }
+
+        .status-pending {
+            background: rgba(243, 156, 18, 0.2);
+            color: var(--warning);
+        }
+
+        .status-processing {
+            background: rgba(30, 180, 185, 0.2);
+            color: var(--secondary);
+        }
+
+        .contributors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contributor {
+            background: rgba(10, 14, 23, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s;
+        }
+
+        .contributor:hover {
+            transform: translateY(-5px);
+        }
+
+        .contributor-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+        }
+
+        .contributor-info h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .contributor-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .credits {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 15px;
+            border: 1px solid var(--card-border);
+        }
+
+        .tab {
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+            flex: 1;
+        }
+
+        .tab.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(10, 14, 23, 0.7);
+            border-radius: 10px;
+            font-family: monospace;
+            border-left: 3px solid var(--accent);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: var(--primary);
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            color: var(--accent-light);
+        }
+
+        .footer-section p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--card-border);
+            margin-top: 30px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .contributors {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-brain logo-icon"></i>
+                    <span>NeuroNet AI</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Marketplace</a></li>
+                        <li><a href="#">Analytics</a></li>
+                        <li><a href="#">Docs</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline"><i class="fas fa-user"></i> Sign In</button>
+                    <button class="btn btn-primary"><i class="fas fa-rocket"></i> Get Started</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Decentralized AI Compute Network</h1>
+            <p>Leverage global GPU resources for your AI workloads. Earn credits by contributing compute power or access distributed infrastructure for your projects.</p>
+            <button class="btn btn-primary"><i class="fas fa-bolt"></i> Explore Network</button>
+        </section>
+
+        <div class="stats">
+            <div class="stat-card animate">
+                <h3>2,458</h3>
+                <p>Active Contributors</p>
+            </div>
+            <div class="stat-card animate">
+                <h3>14.9K</h3>
+                <p>Jobs Completed</p>
+            </div>
+            <div class="stat-card animate">
+                <h3>2.3M</h3>
+                <p>Credits Distributed</p>
+            </div>
+            <div class="stat-card animate">
+                <h3>97.3%</h3>
+                <p>Uptime Rate</p>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="requester">Requester Portal</div>
+            <div class="tab" data-tab="contributor">Contributor Node</div>
+            <div class="tab" data-tab="marketplace">Compute Marketplace</div>
+            <div class="tab" data-tab="analytics">Network Analytics</div>
+        </div>
+
+        <div class="tab-content active" id="requester-tab">
+            <div class="dashboard">
+                <div class="card">
+                    <h2><i class="fas fa-rocket"></i> Submit AI Job</h2>
+                    <div class="form-group">
+                        <label for="job-type">AI Model</label>
+                        <select id="job-type">
+                            <option value="image-classification">Image Classification (ResNet-50)</option>
+                            <option value="text-generation">Text Generation (GPT-3)</option>
+                            <option value="object-detection">Object Detection (YOLOv4)</option>
+                            <option value="style-transfer">Neural Style Transfer</option>
+                            <option value="speech-recognition">Speech Recognition (DeepSpeech)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-input">Input Data</label>
+                        <textarea id="job-input" rows="4" placeholder="Describe your AI task or provide input data..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="credits-to-spend">Credits to Spend</label>
+                        <input type="range" id="credits-to-spend" min="1" max="100" value="25">
+                        <div class="credits-display"><span id="credits-value">25</span> credits</div>
+                    </div>
+                    <button class="btn btn-primary" id="submit-job">
+                        <i class="fas fa-paper-plane"></i> Submit Job
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-history"></i> Job History</h2>
+                    <div id="job-list">
+                        <div class="job">
+                            <div class="job-info">
+                                <h4>Image Classification</h4>
+                                <p>Input: Wildlife photography</p>
+                                <div class="result">Result: 94% African elephant, 5% Asian elephant, 1% mammoth</div>
+                            </div>
+                            <div class="job-status">
+                                <span class="status-badge status-completed">Completed</span>
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="job">
+                            <div class="job-info">
+                                <h4>Text Generation</h4>
+                                <p>Input: "The future of decentralized AI is..."</p>
+                                <div class="result">Result: "The future of decentralized AI is democratized access to computational resources, enabling innovation beyond the constraints of centralized infrastructure."</div>
+                            </div>
+                            <div class="job-status">
+                                <span class="status-badge status-completed">Completed</span>
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="job">
+                            <div class="job-info">
+                                <h4>Object Detection</h4>
+                                <p>Input: Urban traffic scene</p>
+                            </div>
+                            <div class="job-status">
+                                <span class="status-badge status-processing">Processing</span>
+                                <i class="fas fa-sync fa-spin"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-users"></i> Available Contributors</h2>
+                <div class="contributors">
+                    <div class="contributor">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Contributor" class="contributor-avatar">
+                        <div class="contributor-info">
+                            <h4>EliteCompute Node</h4>
+                            <p>4x RTX 4090 | <span class="credits">12,450 credits</span></p>
+                        </div>
+                    </div>
+                    <div class="contributor">
+                        <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Contributor" class="contributor-avatar">
+                        <div class="contributor-info">
+                            <h4>NeuroLabs Cluster</h4>
+                            <p>8x A100 | <span class="credits">28,720 credits</span></p>
+                        </div>
+                    </div>
+                    <div class="contributor">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Contributor" class="contributor-avatar">
+                        <div class="contributor-info">
+                            <h4>Quantum Compute</h4>
+                            <p>2x H100 | <span class="credits">9,850 credits</span></p>
+                        </div>
+                    </div>
+                    <div class="contributor">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Contributor" class="contributor-avatar">
+                        <div class="contributor-info">
+                            <h4>AI Research Hub</h4>
+                            <p>12x RTX 3090 | <span class="credits">31,200 credits</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="contributor-tab">
+            <div class="dashboard">
+                <div class="card">
+                    <h2><i class="fas fa-server"></i> Contributor Setup</h2>
+                    <div class="form-group">
+                        <label for="node-name">Node Name</label>
+                        <input type="text" id="node-name" placeholder="Enter your node name">
+                    </div>
+                    <div class="form-group">
+                        <label for="gpu-type">GPU Configuration</label>
+                        <select id="gpu-type">
+                            <option value="rtx-4090">NVIDIA RTX 4090</option>
+                            <option value="rtx-3090">NVIDIA RTX 3090</option>
+                            <option value="a100">NVIDIA A100</option>
+                            <option value="h100">NVIDIA H100</option>
+                            <option value="rtx-4080">NVIDIA RTX 4080</option>
+                            <option value="multi-gpu">Multi-GPU Setup</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="compute-power">Compute Power (TFLOPS)</label>
+                        <input type="range" id="compute-power" min="10" max="100" value="40">
+                        <div class="credits-display"><span id="compute-value">40</span> TFLOPS</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="availability">Node Availability</label>
+                        <select id="availability">
+                            <option value="24/7">24/7</option>
+                            <option value="business">Business Hours</option>
+                            <option value="weekends">Weekends Only</option>
+                            <option value="custom">Custom Schedule</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="start-node">
+                        <i class="fas fa-play"></i> Start Contributor Node
+                    </button>
+                    <button class="btn btn-outline" id="stop-node" disabled>
+                        <i class="fas fa-stop"></i> Stop Contributor Node
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-chart-line"></i> Node Performance</h2>
+                    <div class="form-group">
+                        <label>Node Status: <span id="node-status" class="status-pending">Inactive</span></label>
+                        <div class="result">
+                            <p>Waiting for node activation...</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <div class="stats" style="grid-template-columns: 1fr 1fr;">
+                        <div class="stat-card">
+                            <h3 id="jobs-completed">0</h3>
+                            <p>Jobs Completed</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="credits-earned">0</h3>
+                            <p>Credits Earned</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="marketplace-tab">
+            <div class="card">
+                <h2><i class="fas fa-store"></i> Compute Marketplace</h2>
+                <p>Browse available compute resources and select the best option for your AI workload requirements.</p>
+                
+                <div class="contributors">
+                    <div class="contributor">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="GPU Cluster" class="contributor-avatar">
+                        <div class="contributor-info">
+                            <h4>Titan GPU Cluster</h4>
+                            <p>8x A100 (80GB) | 320 TFLOPS</p>
+                            <p><span class="credits">12 credits/hour</span></p>
+                        </div>
+                        <button class="btn btn-primary">Reserve</button>
+                    </div>
+                    <div class="contributor">
+                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="GPU Cluster" class="contributor-avatar">
+                        <div class="contributor-info">
+                            <h4>Neural Compute Array</h4>
+                            <p>16x RTX 4090 | 275 TFLOPS</p>
+                            <p><span class="credits">8 credits/hour</span></p>
+                        </div>
+                        <button class="btn btn-primary">Reserve</button>
+                    </div>
+                    <div class="contributor">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="GPU Cluster" class="contributor-avatar">
+                        <div class="contributor-info">
+                            <h4>Deep Learning Rig</h4>
+                            <p>4x RTX 3090 | 120 TFLOPS</p>
+                            <p><span class="credits">5 credits/hour</span></p>
+                        </div>
+                        <button class="btn btn-primary">Reserve</button>
+                    </div>
+                    <div class="contributor">
+                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="GPU Cluster" class="contributor-avatar">
+                        <div class="contributor-info">
+                            <h4>AI Research Station</h4>
+                            <p>2x H100 | 120 TFLOPS</p>
+                            <p><span class="credits">10 credits/hour</span></p>
+                        </div>
+                        <button class="btn btn-primary">Reserve</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="analytics-tab">
+            <div class="card">
+                <h2><i class="fas fa-chart-pie"></i> Network Analytics</h2>
+                <p>Real-time insights into network performance, resource allocation, and computational demand.</p>
+                
+                <div class="chart-container">
+                    <canvas id="networkChart"></canvas>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>2.45 PFLOPS</h3>
+                        <p>Total Compute Power</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>84%</h3>
+                        <p>Resource Utilization</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>127 ms</h3>
+                        <p>Avg. Job Completion</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>0.2%</h3>
+                        <p>Failure Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NeuroNet AI</h3>
+                    <p>The premier decentralized AI compute network, connecting GPU resources with AI workloads globally.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#">Getting Started</a></p>
+                    <p><a href="#">Documentation</a></p>
+                    <p><a href="#">API Reference</a></p>
+                    <p><a href="#">Pricing</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <p><a href="#">Blog</a></p>
+                    <p><a href="#">Case Studies</a></p>
+                    <p><a href="#">Webinars</a></p>
+                    <p><a href="#">White Papers</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p><a href="#">Twitter</a></p>
+                    <p><a href="#">LinkedIn</a></p>
+                    <p><a href="#">GitHub</a></p>
+                    <p><a href="#">Discord</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 NeuroNet AI. All rights reserved. | Decentralized AI Compute Network</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and content
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const tabName = tab.getAttribute('data-tab');
+                document.getElementById(`${tabName}-tab`).classList.add('active');
+            });
+        });
+
+        // Credits slider
+        const creditsSlider = document.getElementById('credits-to-spend');
+        const creditsValue = document.getElementById('credits-value');
+        
+        creditsSlider.addEventListener('input', () => {
+            creditsValue.textContent = creditsSlider.value;
+        });
+
+        // Compute power slider
+        const computeSlider = document.getElementById('compute-power');
+        const computeValue = document.getElementById('compute-value');
+        
+        computeSlider.addEventListener('input', () => {
+            computeValue.textContent = computeSlider.value;
+        });
+
+        // Simulate job submission
+        document.getElementById('submit-job').addEventListener('click', () => {
+            const jobType = document.getElementById('job-type').value;
+            const jobInput = document.getElementById('job-input').value;
+            const credits = document.getElementById('credits-to-spend').value;
+            
+            if (!jobInput) {
+                alert('Please provide input for your AI job');
+                return;
+            }
+            
+            // Add new job to the list
+            const jobList = document.getElementById('job-list');
+            const newJob = document.createElement('div');
+            newJob.className = 'job';
+            newJob.innerHTML = `
+                <div class="job-info">
+                    <h4>${document.getElementById('job-type').options[document.getElementById('job-type').selectedIndex].text}</h4>
+                    <p>Input: ${jobInput.substring(0, 50)}${jobInput.length > 50 ? '...' : ''}</p>
+                </div>
+                <div class="job-status">
+                    <span class="status-badge status-pending">Pending</span>
+                    <i class="fas fa-clock"></i>
+                </div>
+            `;
+            
+            jobList.prepend(newJob);
+            
+            // Update stats
+            document.querySelectorAll('.stat-card h3')[1].textContent = parseInt(document.querySelectorAll('.stat-card h3')[1].textContent.replace(',', '')) + 1;
+            
+            // Simulate processing
+            setTimeout(() => {
+                newJob.querySelector('.status-badge').className = 'status-badge status-processing';
+                newJob.querySelector('.status-badge').textContent = 'Processing';
+                newJob.querySelector('.fa-clock').className = 'fas fa-sync fa-spin';
+            }, 2000);
+            
+            // Simulate completion
+            setTimeout(() => {
+                newJob.querySelector('.status-badge').className = 'status-badge status-completed';
+                newJob.querySelector('.status-badge').textContent = 'Completed';
+                newJob.querySelector('.fa-sync').className = 'fas fa-check-circle';
+                
+                // Add mock result
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result';
+                
+                if (jobType === 'image-classification') {
+                    resultDiv.textContent = 'Result: 92% domestic cat, 5% Persian cat, 3% ragdoll';
+                } else if (jobType === 'text-generation') {
+                    resultDiv.textContent = 'Result: The future of AI is decentralized, with open access to compute resources for everyone.';
+                } else if (jobType === 'object-detection') {
+                    resultDiv.textContent = 'Result: 2 cars, 1 truck, 3 pedestrians detected';
+                } else {
+                    resultDiv.textContent = 'Result: Style transfer completed successfully';
+                }
+                
+                newJob.querySelector('.job-info').appendChild(resultDiv);
+                
+                // Update global stats
+                document.querySelectorAll('.stat-card h3')[2].textContent = parseInt(document.querySelectorAll('.stat-card h3')[2].textContent.replace(',', '')) + parseInt(credits);
+                
+                // Format with commas
+                document.querySelectorAll('.stat-card h3')[2].textContent = document.querySelectorAll('.stat-card h3')[2].textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }, 6000);
+            
+            // Clear input
+            document.getElementById('job-input').value = '';
+        });
+
+        // Contributor node functionality
+        document.getElementById('start-node').addEventListener('click', () => {
+            const nodeName = document.getElementById('node-name').value || 'My Node';
+            const gpuType = document.getElementById('gpu-type').value;
+            
+            document.getElementById('node-status').textContent = 'Active';
+            document.getElementById('node-status').className = 'status-processing';
+            
+            document.getElementById('start-node').disabled = true;
+            document.getElementById('stop-node').disabled = false;
+            
+            // Initialize performance chart
+            const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+            const performanceChart = new Chart(performanceCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1 min', '2 min', '3 min', '4 min', '5 min', '6 min'],
+                    datasets: [{
+                        label: 'GPU Utilization (%)',
+                        data: [0, 0, 0, 0, 0, 0],
+                        borderColor: '#c89763',
+                        backgroundColor: 'rgba(200, 151, 99, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e6e9f0'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(155, 165, 201, 0.1)'
+                            },
+                            ticks: {
+                                color: '#9ba5c9'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(155, 165, 201, 0.1)'
+                            },
+                            ticks: {
+                                color: '#9ba5c9'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Simulate job processing
+            let jobsCompleted = 0;
+            let creditsEarned = 0;
+            let timePoints = ['1 min', '2 min', '3 min', '4 min', '5 min', '6 min'];
+            let utilizationData = [0, 0, 0, 0, 0, 0];
+            let dataIndex = 0;
+            
+            const interval = setInterval(() => {
+                if (!document.getElementById('start-node').disabled) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                // Update utilization data
+                utilizationData[dataIndex] = 20 + Math.floor(Math.random() * 60);
+                performanceChart.data.datasets[0].data = utilizationData;
+                performanceChart.update();
+                
+                dataIndex = (dataIndex + 1) % 6;
+                
+                // Simulate receiving a job
+                document.getElementById('current-job').textContent = `Processing job ${jobsCompleted + 1}`;
+                
+                // Simulate job completion after delay
+                setTimeout(() => {
+                    jobsCompleted++;
+                    creditsEarned += 15 + Math.floor(Math.random() * 10);
+                    
+                    document.getElementById('jobs-completed').textContent = jobsCompleted;
+                    document.getElementById('credits-earned').textContent = creditsEarned;
+                    document.getElementById('current-job').textContent = 'Waiting for next job';
+                    
+                    // Update global stats
+                    document.querySelectorAll('.stat-card h3')[0].textContent = parseInt(document.querySelectorAll('.stat-card h3')[0].textContent.replace(',', '')) + 1;
+                    document.querySelectorAll('.stat-card h3')[2].textContent = parseInt(document.querySelectorAll('.stat-card h3')[2].textContent.replace(',', '')) + 15;
+                    document.querySelectorAll('.stat-card h3')[2].textContent = document.querySelectorAll('.stat-card h3')[2].textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }, 3000);
+            }, 5000);
+        });
+        
+        document.getElementById('stop-node').addEventListener('click', () => {
+            document.getElementById('node-status').textContent = 'Inactive';
+            document.getElementById('node-status').className = 'status-pending';
+            
+            document.getElementById('start-node').disabled = false;
+            document.getElementById('stop-node').disabled = true;
+            
+            document.getElementById('current-job').textContent = 'None';
+        });
+
+        // Initialize network analytics chart
+        document.getElementById('analytics-tab').addEventListener('click', () => {
+            setTimeout(() => {
+                const networkCtx = document.getElementById('networkChart').getContext('2d');
+                new Chart(networkCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Image Recognition', 'Text Generation', 'Object Detection', 'Style Transfer', 'Speech Recognition'],
+                        datasets: [{
+                            label: 'Jobs Completed',
+                            data: [65, 59, 80, 45, 30],
+                            backgroundColor: 'rgba(200, 151, 99, 0.7)',
+                            borderColor: 'rgba(200, 151, 99, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#e6e9f0'
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(155, 165, 201, 0.1)'
+                                },
+                                ticks: {
+                                    color: '#9ba5c9'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    color: 'rgba(155, 165, 201, 0.1)'
+                                },
+                                ticks: {
+                                    color: '#9ba5c9'
+                                }
+                            }
+                        }
+                    }
+                });
+            }, 100);
+        });
+
+        // Add animations to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.card, .stat-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
