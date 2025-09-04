@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroNet AI | Premium Decentralized Compute Network</title>
+    <title>CoreCompute | Premium Decentralized AI Network</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --primary-dark: #0a0e17;
-            --primary: #131b2e;
-            --primary-light: #1c2a48;
-            --accent: #c89763;
-            --accent-light: #dbb585;
-            --accent-glow: rgba(200, 151, 99, 0.15);
-            --secondary: #1eb4b9;
-            --text: #e6e9f0;
-            --text-muted: #9ba5c9;
-            --card-bg: rgba(28, 42, 72, 0.6);
-            --card-border: rgba(200, 151, 99, 0.2);
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --error: #e74c3c;
-            --gradient: linear-gradient(135deg, var(--accent), var(--secondary));
+            --primary-dark: #0a0a0a;
+            --primary: #121212;
+            --primary-light: #1a1a1a;
+            --gold: #d4af37;
+            --gold-light: #f1e5b9;
+            --gold-glow: rgba(212, 175, 55, 0.2);
+            --platinum: #e5e4e2;
+            --text: #f5f5f5;
+            --text-muted: #b0b0b0;
+            --card-bg: rgba(26, 26, 26, 0.8);
+            --card-border: rgba(212, 175, 55, 0.3);
+            --success: #28a745;
+            --warning: #ffc107;
+            --error: #dc3545;
+            --gradient: linear-gradient(135deg, var(--gold), #ffd700, #f1e5b9);
         }
 
         * {
@@ -35,13 +35,14 @@
         body {
             background: var(--primary-dark);
             color: var(--text);
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(28, 42, 72, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(30, 180, 185, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 50% 80%, rgba(200, 151, 99, 0.1) 0%, transparent 25%);
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.03) 0%, transparent 30%),
+                radial-gradient(circle at 50% 95%, rgba(212, 175, 55, 0.04) 0%, transparent 30%),
+                linear-gradient(to bottom, #0a0a0a, #121212);
         }
 
         .container {
@@ -51,12 +52,12 @@
         }
 
         header {
-            padding: 25px 0;
-            background: rgba(10, 14, 23, 0.8);
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             border-bottom: 1px solid var(--card-border);
         }
 
@@ -70,14 +71,15 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--text);
+            color: var(--gold);
+            text-shadow: 0 0 10px var(--gold-glow);
         }
 
         .logo-icon {
-            color: var(--accent);
+            color: var(--gold);
             font-size: 2.2rem;
         }
 
@@ -92,13 +94,13 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 1.1rem;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
             position: relative;
             padding: 8px 0;
         }
 
         nav a:hover {
-            color: var(--accent);
+            color: var(--gold);
         }
 
         nav a::after {
@@ -109,7 +111,7 @@
             width: 0;
             height: 2px;
             background: var(--gradient);
-            transition: width 0.3s;
+            transition: width 0.3s ease;
         }
 
         nav a:hover::after {
@@ -125,9 +127,9 @@
             padding: 12px 25px;
             border-radius: 30px;
             font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             border: none;
             display: inline-flex;
             align-items: center;
@@ -136,23 +138,24 @@
 
         .btn-primary {
             background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 15px var(--accent-glow);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 15px var(--gold-glow);
+            font-weight: 600;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--accent-glow);
+            box-shadow: 0 6px 20px var(--gold-glow);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--text);
-            border: 1px solid var(--accent);
+            color: var(--gold);
+            border: 1px solid var(--gold);
         }
 
         .btn-outline:hover {
-            background: rgba(200, 151, 99, 0.1);
+            background: rgba(212, 175, 55, 0.1);
         }
 
         .hero {
@@ -163,13 +166,14 @@
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--text) 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         .hero p {
@@ -193,28 +197,40 @@
             backdrop-filter: blur(10px);
             border: 1px solid var(--card-border);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: var(--gold);
         }
 
         .card h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 12px;
-            color: var(--accent-light);
+            color: var(--gold);
         }
 
         .card h2 i {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--gold);
         }
 
         .stats {
@@ -231,20 +247,32 @@
             backdrop-filter: blur(10px);
             border: 1px solid var(--card-border);
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
+            border-color: var(--gold);
         }
 
         .stat-card h3 {
             font-size: 2.5rem;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             margin-bottom: 5px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--gold);
         }
 
         .stat-card p {
@@ -267,20 +295,21 @@
             width: 100%;
             padding: 15px;
             border-radius: 10px;
-            background: rgba(10, 14, 23, 0.6);
+            background: rgba(10, 10, 10, 0.6);
             border: 1px solid var(--primary-light);
             color: var(--text);
-            font-family: 'Raleway', sans-serif;
-            transition: border-color 0.3s;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px var(--gold-glow);
         }
 
         .job {
-            background: rgba(10, 14, 23, 0.5);
+            background: rgba(10, 10, 10, 0.5);
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 15px;
@@ -288,11 +317,12 @@
             justify-content: space-between;
             align-items: center;
             border: 1px solid var(--card-border);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
 
         .job:hover {
             transform: translateX(5px);
+            border-color: var(--gold);
         }
 
         .job-info {
@@ -300,9 +330,9 @@
         }
 
         .job-info h4 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             margin-bottom: 5px;
-            color: var(--accent-light);
+            color: var(--gold);
         }
 
         .job-status {
@@ -319,18 +349,18 @@
         }
 
         .status-completed {
-            background: rgba(46, 204, 113, 0.2);
+            background: rgba(40, 167, 69, 0.2);
             color: var(--success);
         }
 
         .status-pending {
-            background: rgba(243, 156, 18, 0.2);
+            background: rgba(255, 193, 7, 0.2);
             color: var(--warning);
         }
 
         .status-processing {
-            background: rgba(30, 180, 185, 0.2);
-            color: var(--secondary);
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
         }
 
         .contributors {
@@ -341,18 +371,19 @@
         }
 
         .contributor {
-            background: rgba(10, 14, 23, 0.5);
+            background: rgba(10, 10, 10, 0.5);
             border-radius: 15px;
             padding: 20px;
             display: flex;
             align-items: center;
             gap: 15px;
             border: 1px solid var(--card-border);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
 
         .contributor:hover {
             transform: translateY(-5px);
+            border-color: var(--gold);
         }
 
         .contributor-avatar {
@@ -360,11 +391,11 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--gold);
         }
 
         .contributor-info h4 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             margin-bottom: 5px;
         }
 
@@ -374,7 +405,7 @@
         }
 
         .credits {
-            color: var(--accent);
+            color: var(--gold);
             font-weight: 700;
         }
 
@@ -393,19 +424,20 @@
             border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-align: center;
             flex: 1;
         }
 
         .tab.active {
             background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 15px var(--accent-glow);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 15px var(--gold-glow);
         }
 
         .tab-content {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
         .tab-content.active {
@@ -415,10 +447,10 @@
         .result {
             margin-top: 15px;
             padding: 15px;
-            background: rgba(10, 14, 23, 0.7);
+            background: rgba(10, 10, 10, 0.7);
             border-radius: 10px;
             font-family: monospace;
-            border-left: 3px solid var(--accent);
+            border-left: 3px solid var(--gold);
         }
 
         .chart-container {
@@ -441,9 +473,9 @@
         }
 
         .footer-section h3 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             margin-bottom: 20px;
-            color: var(--accent-light);
+            color: var(--gold);
         }
 
         .footer-section p {
@@ -465,8 +497,18 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
         .animate {
             animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
         }
 
         /* Responsive Design */
@@ -528,8 +570,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-brain logo-icon"></i>
-                    <span>NeuroNet AI</span>
+                    <i class="fas fa-crown logo-icon"></i>
+                    <span>CoreCompute</span>
                 </div>
                 <nav>
                     <ul>
@@ -542,7 +584,7 @@
                 </nav>
                 <div class="auth-buttons">
                     <button class="btn btn-outline"><i class="fas fa-user"></i> Sign In</button>
-                    <button class="btn btn-primary"><i class="fas fa-rocket"></i> Get Started</button>
+                    <button class="btn btn-primary"><i class="fas fa-gem"></i> Get Started</button>
                 </div>
             </div>
         </div>
@@ -550,15 +592,15 @@
 
     <main class="container">
         <section class="hero">
-            <h1>Decentralized AI Compute Network</h1>
-            <p>Leverage global GPU resources for your AI workloads. Earn credits by contributing compute power or access distributed infrastructure for your projects.</p>
-            <button class="btn btn-primary"><i class="fas fa-bolt"></i> Explore Network</button>
+            <h1>Premium Decentralized AI Compute</h1>
+            <p>Leverage global GPU resources for your AI workloads. Earn exclusive rewards by contributing compute power or access our premium distributed infrastructure.</p>
+            <button class="btn btn-primary pulse"><i class="fas fa-bolt"></i> Explore Network</button>
         </section>
 
         <div class="stats">
             <div class="stat-card animate">
                 <h3>2,458</h3>
-                <p>Active Contributors</p>
+                <p>Elite Contributors</p>
             </div>
             <div class="stat-card animate">
                 <h3>14.9K</h3>
@@ -569,8 +611,8 @@
                 <p>Credits Distributed</p>
             </div>
             <div class="stat-card animate">
-                <h3>97.3%</h3>
-                <p>Uptime Rate</p>
+                <h3>99.9%</h3>
+                <p>Uptime Guarantee</p>
             </div>
         </div>
 
@@ -649,7 +691,7 @@
             </div>
             
             <div class="card">
-                <h2><i class="fas fa-users"></i> Available Contributors</h2>
+                <h2><i class="fas fa-users"></i> Premium Contributors</h2>
                 <div class="contributors">
                     <div class="contributor">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Contributor" class="contributor-avatar">
@@ -752,7 +794,7 @@
         <div class="tab-content" id="marketplace-tab">
             <div class="card">
                 <h2><i class="fas fa-store"></i> Compute Marketplace</h2>
-                <p>Browse available compute resources and select the best option for your AI workload requirements.</p>
+                <p>Browse premium compute resources and select the best option for your AI workload requirements.</p>
                 
                 <div class="contributors">
                     <div class="contributor">
@@ -830,7 +872,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>NeuroNet AI</h3>
+                    <h3>CoreCompute</h3>
                     <p>The premier decentralized AI compute network, connecting GPU resources with AI workloads globally.</p>
                 </div>
                 <div class="footer-section">
@@ -856,7 +898,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 NeuroNet AI. All rights reserved. | Decentralized AI Compute Network</p>
+                <p>&copy; 2025 CoreCompute. All rights reserved. | Premium Decentralized AI Compute Network</p>
             </div>
         </div>
     </footer>
@@ -985,8 +1027,8 @@
                     datasets: [{
                         label: 'GPU Utilization (%)',
                         data: [0, 0, 0, 0, 0, 0],
-                        borderColor: '#c89763',
-                        backgroundColor: 'rgba(200, 151, 99, 0.1)',
+                        borderColor: '#d4af37',
+                        backgroundColor: 'rgba(212, 175, 55, 0.1)',
                         tension: 0.4,
                         fill: true
                     }]
@@ -997,7 +1039,7 @@
                     plugins: {
                         legend: {
                             labels: {
-                                color: '#e6e9f0'
+                                color: '#f5f5f5'
                             }
                         }
                     },
@@ -1006,18 +1048,18 @@
                             beginAtZero: true,
                             max: 100,
                             grid: {
-                                color: 'rgba(155, 165, 201, 0.1)'
+                                color: 'rgba(176, 176, 176, 0.1)'
                             },
                             ticks: {
-                                color: '#9ba5c9'
+                                color: '#b0b0b0'
                             }
                         },
                         x: {
                             grid: {
-                                color: 'rgba(155, 165, 201, 0.1)'
+                                color: 'rgba(176, 176, 176, 0.1)'
                             },
                             ticks: {
-                                color: '#9ba5c9'
+                                color: '#b0b0b0'
                             }
                         }
                     }
@@ -1085,8 +1127,8 @@
                         datasets: [{
                             label: 'Jobs Completed',
                             data: [65, 59, 80, 45, 30],
-                            backgroundColor: 'rgba(200, 151, 99, 0.7)',
-                            borderColor: 'rgba(200, 151, 99, 1)',
+                            backgroundColor: 'rgba(212, 175, 55, 0.7)',
+                            borderColor: 'rgba(212, 175, 55, 1)',
                             borderWidth: 1
                         }]
                     },
@@ -1096,7 +1138,7 @@
                         plugins: {
                             legend: {
                                 labels: {
-                                    color: '#e6e9f0'
+                                    color: '#f5f5f5'
                                 }
                             }
                         },
@@ -1104,18 +1146,18 @@
                             y: {
                                 beginAtZero: true,
                                 grid: {
-                                    color: 'rgba(155, 165, 201, 0.1)'
+                                    color: 'rgba(176, 176, 176, 0.1)'
                                 },
                                 ticks: {
-                                    color: '#9ba5c9'
+                                    color: '#b0b0b0'
                                 }
                             },
                             x: {
                                 grid: {
-                                    color: 'rgba(155, 165, 201, 0.1)'
+                                    color: 'rgba(176, 176, 176, 0.1)'
                                 },
                                 ticks: {
-                                    color: '#9ba5c9'
+                                    color: '#b0b0b0'
                                 }
                             }
                         }
