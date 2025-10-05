@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreCompute | Premium Decentralized AI Network</title>
+    <title>HyperlumeAI | Premium Decentralized AI Network</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -12,18 +12,22 @@
             --primary-dark: #0a0a0a;
             --primary: #121212;
             --primary-light: #1a1a1a;
-            --gold: #d4af37;
-            --gold-light: #f1e5b9;
-            --gold-glow: rgba(212, 175, 55, 0.2);
+            --electric-blue: #00a8ff;
+            --electric-blue-light: #4bc6ff;
+            --electric-blue-dark: #0081cc;
+            --neon-purple: #9c27b0;
+            --neon-purple-light: #d05ce3;
             --platinum: #e5e4e2;
             --text: #f5f5f5;
             --text-muted: #b0b0b0;
             --card-bg: rgba(26, 26, 26, 0.8);
-            --card-border: rgba(212, 175, 55, 0.3);
+            --card-border: rgba(0, 168, 255, 0.3);
+            --electric-glow: rgba(0, 168, 255, 0.2);
             --success: #28a745;
             --warning: #ffc107;
             --error: #dc3545;
-            --gradient: linear-gradient(135deg, var(--gold), #ffd700, #f1e5b9);
+            --gradient: linear-gradient(135deg, var(--electric-blue), var(--neon-purple), var(--electric-blue-light));
+            --gradient-light: linear-gradient(135deg, var(--electric-blue-light), var(--neon-purple-light));
         }
 
         * {
@@ -39,9 +43,9 @@
             line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 30%),
-                radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.03) 0%, transparent 30%),
-                radial-gradient(circle at 50% 95%, rgba(212, 175, 55, 0.04) 0%, transparent 30%),
+                radial-gradient(circle at 10% 20%, rgba(0, 168, 255, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(156, 39, 176, 0.03) 0%, transparent 30%),
+                radial-gradient(circle at 50% 95%, rgba(0, 168, 255, 0.04) 0%, transparent 30%),
                 linear-gradient(to bottom, #0a0a0a, #121212);
             position: relative;
         }
@@ -57,7 +61,7 @@
             z-index: 0;
             pointer-events: none;
             opacity: 0.15;
-            filter: drop-shadow(0 0 15px var(--gold-glow));
+            filter: drop-shadow(0 0 15px var(--electric-glow));
             animation: float 25s infinite ease-in-out;
         }
 
@@ -66,7 +70,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4af37' /%3E%3Cstop offset='100%25' stop-color='%23f1e5b9' /%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='3.5' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M40,40 L160,40 L160,160 L40,160 Z' fill='none' stroke='url(%23grad)' stroke-width='4' filter='url(%23glow)' /%3E%3Crect x='50' y='50' width='100' height='100' fill='rgba(10,10,10,0.8)' stroke='url(%23grad)' stroke-width='2' /%3E%3Ccircle cx='60' y='60' r='3' fill='%23d4af37' /%3E%3Ccircle cx='140' y='60' r='3' fill='%23d4af37' /%3E%3Ccircle cx='60' y='140' r='3' fill='%23d4af37' /%3E%3Ccircle cx='140' y='140' r='3' fill='%23d4af37' /%3E%3Crect x='70' y='70' width='60' height='60' fill='rgba(212, 175, 55, 0.1)' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='85' x2='120' y2='85' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='95' x2='120' y2='95' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='105' x2='120' y2='105' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='115' x2='120' y2='115' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='125' x2='120' y2='125' stroke='url(%23grad)' stroke-width='1' /%3E%3C/svg%3E") center/contain no-repeat;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300a8ff' /%3E%3Cstop offset='100%25' stop-color='%239c27b0' /%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='3.5' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M40,40 L160,40 L160,160 L40,160 Z' fill='none' stroke='url(%23grad)' stroke-width='4' filter='url(%23glow)' /%3E%3Crect x='50' y='50' width='100' height='100' fill='rgba(10,10,10,0.8)' stroke='url(%23grad)' stroke-width='2' /%3E%3Ccircle cx='60' y='60' r='3' fill='%2300a8ff' /%3E%3Ccircle cx='140' y='60' r='3' fill='%2300a8ff' /%3E%3Ccircle cx='60' y='140' r='3' fill='%2300a8ff' /%3E%3Ccircle cx='140' y='140' r='3' fill='%2300a8ff' /%3E%3Crect x='70' y='70' width='60' height='60' fill='rgba(0, 168, 255, 0.1)' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='85' x2='120' y2='85' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='95' x2='120' y2='95' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='105' x2='120' y2='105' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='115' x2='120' y2='115' stroke='url(%23grad)' stroke-width='1' /%3E%3Cline x1='80' y1='125' x2='120' y2='125' stroke='url(%23grad)' stroke-width='1' /%3E%3C/svg%3E") center/contain no-repeat;
             animation: rotate 45s infinite linear, pulse 8s infinite ease-in-out;
         }
 
@@ -103,6 +107,13 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background: rgba(10, 10, 10, 0.97);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .header-content {
@@ -118,12 +129,12 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--gold);
-            text-shadow: 0 0 10px var(--gold-glow);
+            color: var(--electric-blue);
+            text-shadow: 0 0 10px var(--electric-glow);
         }
 
         .logo-icon {
-            color: var(--gold);
+            color: var(--electric-blue);
             font-size: 2.2rem;
         }
 
@@ -144,7 +155,7 @@
         }
 
         nav a:hover {
-            color: var(--gold);
+            color: var(--electric-blue);
         }
 
         nav a::after {
@@ -183,27 +194,27 @@
         .btn-primary {
             background: var(--gradient);
             color: var(--primary-dark);
-            box-shadow: 0 4px 15px var(--gold-glow);
+            box-shadow: 0 4px 15px var(--electric-glow);
             font-weight: 600;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--gold-glow);
+            box-shadow: 0 6px 20px var(--electric-glow);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--gold);
-            border: 1px solid var(--gold);
+            color: var(--electric-blue);
+            border: 1px solid var(--electric-blue);
         }
 
         .btn-outline:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(0, 168, 255, 0.1);
         }
 
         .hero {
-            padding: 80px 0 50px;
+            padding: 120px 0 80px;
             text-align: center;
             max-width: 850px;
             margin: 0 auto;
@@ -211,13 +222,14 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            background: linear-gradient(135deg, var(--electric-blue) 0%, var(--neon-purple) 50%, var(--electric-blue-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 20px rgba(0, 168, 255, 0.3);
+            line-height: 1.2;
         }
 
         .hero p {
@@ -253,14 +265,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            background: linear-gradient(135deg, rgba(0, 168, 255, 0.05) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-color: var(--gold);
+            border-color: var(--electric-blue);
         }
 
         .card h2 {
@@ -270,11 +282,11 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: var(--gold);
+            color: var(--electric-blue);
         }
 
         .card h2 i {
-            color: var(--gold);
+            color: var(--electric-blue);
         }
 
         .stats {
@@ -303,20 +315,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            background: linear-gradient(135deg, rgba(0, 168, 255, 0.05) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            border-color: var(--gold);
+            border-color: var(--electric-blue);
         }
 
         .stat-card h3 {
             font-size: 2.5rem;
             font-family: 'Playfair Display', serif;
             margin-bottom: 5px;
-            color: var(--gold);
+            color: var(--electric-blue);
         }
 
         .stat-card p {
@@ -348,8 +360,8 @@
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 2px var(--gold-glow);
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 0 2px var(--electric-glow);
         }
 
         .job {
@@ -366,7 +378,7 @@
 
         .job:hover {
             transform: translateX(5px);
-            border-color: var(--gold);
+            border-color: var(--electric-blue);
         }
 
         .job-info {
@@ -376,7 +388,7 @@
         .job-info h4 {
             font-family: 'Playfair Display', serif;
             margin-bottom: 5px;
-            color: var(--gold);
+            color: var(--electric-blue);
         }
 
         .job-status {
@@ -403,8 +415,8 @@
         }
 
         .status-processing {
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--gold);
+            background: rgba(0, 168, 255, 0.2);
+            color: var(--electric-blue);
         }
 
         .contributors {
@@ -427,7 +439,7 @@
 
         .contributor:hover {
             transform: translateY(-5px);
-            border-color: var(--gold);
+            border-color: var(--electric-blue);
         }
 
         .contributor-avatar {
@@ -435,7 +447,7 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--electric-blue);
         }
 
         .contributor-info h4 {
@@ -449,7 +461,7 @@
         }
 
         .credits {
-            color: var(--gold);
+            color: var(--electric-blue);
             font-weight: 700;
         }
 
@@ -476,7 +488,7 @@
         .tab.active {
             background: var(--gradient);
             color: var(--primary-dark);
-            box-shadow: 0 4px 15px var(--gold-glow);
+            box-shadow: 0 4px 15px var(--electric-glow);
         }
 
         .tab-content {
@@ -494,7 +506,7 @@
             background: rgba(10, 10, 10, 0.7);
             border-radius: 10px;
             font-family: monospace;
-            border-left: 3px solid var(--gold);
+            border-left: 3px solid var(--electric-blue);
         }
 
         .chart-container {
@@ -519,12 +531,24 @@
         .footer-section h3 {
             font-family: 'Playfair Display', serif;
             margin-bottom: 20px;
-            color: var(--gold);
+            color: var(--electric-blue);
         }
 
         .footer-section p {
             color: var(--text-muted);
             line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: var(--electric-blue);
         }
 
         .footer-bottom {
@@ -562,7 +586,7 @@
             }
             
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
             
             nav ul {
@@ -587,7 +611,7 @@
             }
             
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 2.5rem;
             }
             
             .hero p {
@@ -622,6 +646,14 @@
             .gpu-chip-3d {
                 display: none; /* Hide on very small screens */
             }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -633,8 +665,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-crown logo-icon"></i>
-                    <span>CoreCompute</span>
+                    <i class="fas fa-microchip logo-icon"></i>
+                    <span>HyperlumeAI</span>
                 </div>
                 <nav>
                     <ul>
@@ -647,7 +679,7 @@
                 </nav>
                 <div class="auth-buttons">
                     <button class="btn btn-outline"><i class="fas fa-user"></i> Sign In</button>
-                    <button class="btn btn-primary"><i class="fas fa-gem"></i> Get Started</button>
+                    <button class="btn btn-primary"><i class="fas fa-bolt"></i> Get Started</button>
                 </div>
             </div>
         </div>
@@ -657,7 +689,7 @@
         <section class="hero">
             <h1>Premium Decentralized AI Compute</h1>
             <p>Leverage global GPU resources for your AI workloads. Earn exclusive rewards by contributing compute power or access our premium distributed infrastructure.</p>
-            <button class="btn btn-primary pulse"><i class="fas fa-bolt"></i> Explore Network</button>
+            <button class="btn btn-primary pulse"><i class="fas fa-network-wired"></i> Explore Network</button>
         </section>
 
         <div class="stats">
@@ -935,38 +967,48 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>CoreCompute</h3>
+                    <h3>HyperlumeAI</h3>
                     <p>The premier decentralized AI compute network, connecting GPU resources with AI workloads globally.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <p><a href="#">Getting Started</a></p>
-                    <p><a href="#">Documentation</a></p>
-                    <p><a href="#">API Reference</a></p>
-                    <p><a href="#">Pricing</a></p>
+                    <a href="#">Getting Started</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">API Reference</a>
+                    <a href="#">Pricing</a>
                 </div>
                 <div class="footer-section">
                     <h3>Resources</h3>
-                    <p><a href="#">Blog</a></p>
-                    <p><a href="#">Case Studies</a></p>
-                    <p><a href="#">Webinars</a></p>
-                    <p><a href="#">White Papers</a></p>
+                    <a href="#">Blog</a>
+                    <a href="#">Case Studies</a>
+                    <a href="#">Webinars</a>
+                    <a href="#">White Papers</a>
                 </div>
                 <div class="footer-section">
                     <h3>Connect</h3>
-                    <p><a href="#">Twitter</a></p>
-                    <p><a href="#">LinkedIn</a></p>
-                    <p><a href="#">GitHub</a></p>
-                    <p><a href="#">Discord</a></p>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">Discord</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 CoreCompute. All rights reserved. | Premium Decentralized AI Compute Network</p>
+                <p>&copy; 2025 HyperlumeAI. All rights reserved. | Premium Decentralized AI Compute Network</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // Tab functionality
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
@@ -1090,8 +1132,8 @@
                     datasets: [{
                         label: 'GPU Utilization (%)',
                         data: [0, 0, 0, 0, 0, 0],
-                        borderColor: '#d4af37',
-                        backgroundColor: 'rgba(212, 175, 55, 0.1)',
+                        borderColor: '#00a8ff',
+                        backgroundColor: 'rgba(0, 168, 255, 0.1)',
                         tension: 0.4,
                         fill: true
                     }]
@@ -1190,8 +1232,8 @@
                         datasets: [{
                             label: 'Jobs Completed',
                             data: [65, 59, 80, 45, 30],
-                            backgroundColor: 'rgba(212, 175, 55, 0.7)',
-                            borderColor: 'rgba(212, 175, 55, 1)',
+                            backgroundColor: 'rgba(0, 168, 255, 0.7)',
+                            borderColor: 'rgba(0, 168, 255, 1)',
                             borderWidth: 1
                         }]
                     },
